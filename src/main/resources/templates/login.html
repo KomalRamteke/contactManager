@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="~{base::layout(~{::section})}">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Login</title>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="row">       
+                <div class="col-md-7 offset-md-2">
+                  <div class="my-card ">
+                      
+                        <div class="container text-center">
+                        <img  style="width:80px;" th:src="@{/img/add-user.png}"></div>
+                    <h1 class="text-center">Login Here!!</h1>
+        <form  novalidate action="" th:action="@{/detail}" method="post" th:object="${user}">
+
+            <div class="form-group mt-5">
+                <div class="row">
+                    <div class="col-md-7 offset-md-2">
+                        <div class="my-card my-3">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email"
+               class="form-control" 
+               id="email" aria-d
+               escribedby="emailHelp">
+              
+              
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+            </div>
+           <div class="container text-center">
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="reset" class="btn btn-danger">clear</button>
+            </div>
+          </form>
+        </div>
+    </div>
+    </div>
+</div> 
+</div>   
+</section>
+</body>
+</html>

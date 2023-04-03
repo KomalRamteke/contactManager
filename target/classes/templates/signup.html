@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="~{base::layout(~{::section})}" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Document</title>
+</head>
+<body>
+    <section>
+   <div class="container">
+    <div class="row">       
+        <div class="col-md-7 offset-md-2">
+          <div class="my-card ">
+
+            <div class="alert alert-success" role="alert" th:if="${session.message}" 
+            th:classappend="${session.message.type}">
+            
+                <p class="text-center" th:text="${session.message.content}">
+            <th:block th:text="${session.removeAttribute('message')}"></th:block>
+        </p>
+              </div>
+
+       
+                <div class="container text-center">
+                <img  style="width:80px;" th:src="@{/img/add-user.png}"></div>
+            <h1 class="text-center">Register Here!!</h1>
+            <form  novalidate action="" th:action="@{/do_register}" method="post" th:object="${user}">
+
+                <div class="form-group">
+
+                      <!--name field -->
+                    <label for="exampleInputName">Your Name</label>
+                    <input type="text"
+                     class="form-control"
+                     th:classappend="${#fields.hasErrors('name') ? 'is-invalid' : '' }"
+                      id="uname"
+                       name="name"
+                        placeholder="enter your name" 
+                        th:value="${user.name}"
+                       
+                        required>
+                   
+                   
+
+                   <div class="invalid-feedback"
+                   th:each=" e: ${#fields.hasErrors('name')}" th:text="${e}">
+                    </div> 
+                   </div>
+              
+                
+                   
+            
+                <!--email field -->
+                <div class="form-group">
+                    <label for="exampleInputEmail1">email</label>
+                    <input type="email" class="form-control" id="uemail" name="email" aria-describedby="emailHelp"
+                    th:value="${user.email}">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+
+                  <!--password field -->
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Password</label>
+                    <input type="password" class="form-control" id="upassword" name="password"  placeholder="enter your password" required>
+                   </div>
+
+                   <!--Role field -->
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Role</label>
+                    <input type="text" 
+                    class="form-control"
+                     id="urole"
+                      name="role"
+                      th:value="${user.role}"
+                       placeholder="enter your role" required>
+                   </div>
+                     <!--contact field -->
+                <div class="form-group">
+                    <label for="exampleInputContact">Contact</label>
+                    <input type="text" 
+                    class="form-control"
+                     id="ucontact"
+                     th:value="${user.contact}"
+                      name="contact"
+                       placeholder="enter your contact NO" required>
+                   </div>
+
+
+
+                   <!--about field -->
+                <div class="form-group">
+                    <textarea rows="5" class="form-control" name="about" placeholder="enter something about yourself"
+                    th:value="${user.about}"></textarea>
+                    </div>
+
+                    <!--terms and condition agreement-->
+                    <div class="formgroup form-check">
+                        <input type="checkbox" name="agreement" class="form-check-input" id="agreement">
+                        <label for="agreement">Accept terms and conditions</label>
+
+                    </div>
+                    <br>
+                    <div class="container text-center">
+                        <button type="submit" class="btn bg-primary text-white">Submit</button>
+                        <button type="reset" class="btn bg-primary text-white">Reset</button>
+                    </div>
+            </form>
+        </div>
+        </div>
+    </div>
+
+   </div>
+    </section>
+</body>
+</html>

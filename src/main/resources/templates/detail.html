@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="~{base::layout(~{::section})}" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title >Document</title>
+</head>
+<body>
+<section>
+    <div class="container">
+     <div class="row">       
+         <div class="col-md-7 offset-md-2">
+           <div class="my-card ">
+            <form  action="" th:action="@{/loginuser}" method="post" th:object="${user}">
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                      <div class="col-md-4">
+                        <img  style="width:200px;height:300px" th:src="@{/img/avtar.png}"> </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                          <h3 class="card-title">Contact Details</h3>
+                          <h6 class="card-text my-6">
+                          Name:  <span th:text="${msg.name}"></span><br><br>
+                          Email:<span th:text="${msg.email}"></span><br><br>
+                          Role:<span th:text="${msg.role}"></span><br><br>
+                          About:<span th:text="${msg.about}"></span></h6>
+                          ContactNo:<span th:text="${msg.contact}"></span></h6>
+                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </form>
+           </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
